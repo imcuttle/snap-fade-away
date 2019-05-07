@@ -1,0 +1,18 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "exclude": ["transform-regenerator"],
+        "modules": false,
+        "loose": false,
+        "useBuiltIns": true
+      }
+    ]
+  ],
+  "plugins": [
+    "transform-class-properties",
+    "transform-object-rest-spread",
+    "transform-es2015-modules-commonjs"
+  ]
+}
