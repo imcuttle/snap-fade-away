@@ -22,7 +22,7 @@ yarn add snap-fade-away
 ## Usage
 
 ```javascript
-const snapFadeAway = require('snap-fade-away')
+import snapFadeAway from 'snap-fade-away'
 
 async (() => {
   await snapFadeAway(window.root)
