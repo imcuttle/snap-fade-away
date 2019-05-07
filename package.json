@@ -6,7 +6,7 @@
   "author": "imcuttle <moyuyc95@gmail.com>",
   "scripts": {
     "example": "parcel example.html -d public --open",
-    "build:example": "rimraf public && parcel build example.html -d public -o index",
+    "build:example": "rimraf public && parcel build example.html --public-url=/snap-fade-away/ -d public -o index",
     "test": "jest",
     "prepublishOnly": "npm test",
     "test-ci": "npm run clean && npm test",
