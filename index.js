@@ -104,7 +104,7 @@ export default async (
   })
 
   // https://birtles.github.io/cssconf2019/index.zh.html#/css-transitions-attempt-one
-  await requestAnimationFramePromise()
+  await delay()
 
   canvasNodes.forEach((item, i) => {
     let base = i % 2 === 0 ? 1 : -1
