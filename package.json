@@ -35,7 +35,6 @@
     "away",
     "snap-fade-away"
   ],
-  "typings": "index.d.ts",
   "license": "MIT",
   "repository": "imcuttle/snap-fade-away",
   "jest": {
@@ -71,7 +70,6 @@
     "rollup": "^1.11.3"
   },
   "dependencies": {
-    "html2canvas": "^1.0.0-rc.1",
-    "parse-unit": "^1.0.1"
+    "html2canvas": "^1.0.0-rc.1"
   }
 }

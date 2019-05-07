@@ -1,10 +1,10 @@
 /**
  * The effection like Thanos snapping finger
  * @author imcuttle
+ * @namespace snapFadeAway
  */
 
 import html2canvas from 'html2canvas'
-import parseUnit from 'parse-unit'
 
 import { getOffsetBy, prefixEventListenerPromise } from './utils'
 
@@ -46,13 +46,25 @@ function particlify(canvas, { frameCount = 10 } = {}) {
   return frames
 }
 
+/**
+ * The effect like Thanos snapping finger
+ * @name snapFadeAway
+ * @public
+ * @param elem {HTMLElement} The animating element
+ * @param opts {{}}
+ * @param [opts.frameCount=20] {number}
+ * @param [opts.debug=false] {boolean}
+ * @param [opts.duration='2s'] {string} The animation duration
+ * @param [opts.relativeElem=document.documentElement] {HTMLElement} Mount on where
+ * @param [opts.canvasClassName='snap-fade-away-canvas'] {string}
+ * @return {Promise<any>}
+ */
 export default async (
   elem,
   {
     frameCount = 20,
     debug = false,
     duration = '2s',
-    getOffset = getOffsetBy,
     relativeElem,
     canvasClassName = 'snap-fade-away-canvas'
   } = {}
@@ -69,7 +81,7 @@ export default async (
   elem.style.opacity = 1
   elem.style.transition = `opacity ${duration} ease 0s`
 
-  let canvas = await html2canvas(elem)
+  let canvas = await html2canvas(elem, {frameCount})
   let tasks = []
   const { width, height } = canvas
   const frames = particlify(canvas)
@@ -83,7 +95,7 @@ export default async (
     })
   )
 
-  const { left, top } = getOffset(elem, relativeElem)
+  const { left, top } = getOffsetBy(elem, relativeElem)
   // 遍历像素对象，将像素对象填充到画布上面
   const canvasNodes = frames.map((item, i) => {
     const cloneNode = canvas.cloneNode(true)
