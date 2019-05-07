@@ -9,7 +9,17 @@ import parseUnit from 'parse-unit'
 import { getOffsetBy, prefixEventListenerPromise } from './utils'
 
 const requestAnimationFramePromise = () => {
-  return new Promise(resolve => requestAnimationFrame(resolve))
+  return new Promise(resolve => requestAnimationFrame(() => {
+    console.log('requestAnimationFramePromise')
+    resolve()
+  }))
+}
+
+const delay = (ms) => {
+  return new Promise(resolve => setTimeout(() => {
+    console.log('setTimeout')
+    resolve()
+  }, ms))
 }
 
 // 粒子化
@@ -92,6 +102,9 @@ export default async (
     cloneNode.className = canvasClassName
     return cloneNode
   })
+
+  // https://birtles.github.io/cssconf2019/index.zh.html#/css-transitions-attempt-one
+  await requestAnimationFramePromise()
 
   canvasNodes.forEach((item, i) => {
     let base = i % 2 === 0 ? 1 : -1
