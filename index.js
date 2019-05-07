@@ -103,9 +103,8 @@ export default async (
     return cloneNode
   })
 
-  // https://birtles.github.io/cssconf2019/index.zh.html#/css-transitions-panel-attempt-two
-  await requestAnimationFramePromise()
-  await requestAnimationFramePromise()
+  // https://birtles.github.io/cssconf2019/index.zh.html#/css-transitions-panel-attempt-three
+  getComputedStyle(elem).transform;
 
   canvasNodes.forEach((item, i) => {
     let base = i % 2 === 0 ? 1 : -1
