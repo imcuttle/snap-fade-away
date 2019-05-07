@@ -6,7 +6,7 @@ export default [
     input: 'index.js',
     output: [
       {
-        name: 'OpenOneWindow',
+        name: 'SnapFadeAway',
         file: pkg.browser,
         format: 'umd'
       },
