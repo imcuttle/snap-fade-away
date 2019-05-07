@@ -28,7 +28,6 @@ async (() => {
   await snapFadeAway(window.root)
   // Animated!
 })()
-
 ```
 
 ## API
@@ -37,7 +36,7 @@ async (() => {
 
 ### snapFadeAway
 
-[index.js:62-135](https://github.com/imcuttle/snap-fade-away/blob/3db569a986d8032bb62f83cd51b2a2599304287c/index.js#L62-L135 "Source code on GitHub")
+[index.js:62-135](https://github.com/imcuttle/snap-fade-away/blob/06b011d5ac98a0fd303d29f00ae74da97fc951eb/index.js#L62-L135 "Source code on GitHub")
 
 The effect like Thanos snapping finger
 
