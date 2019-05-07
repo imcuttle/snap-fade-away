@@ -11,11 +11,20 @@ cache:
   directories:
     - node_modules
 
-#install:
-# - npm install
+jobs:
+  include:
+  - stage: Document deploy
+    node_js: 9
+    allow_failure: true
+    script: npm run build:example
+    deploy:
+      provider: pages
+      skip_cleanup: true
+      github_token: ${GH_TOKEN} # Set in travis-ci.org dashboard
+      local_dir: public
 
-script:
-  - npm run test-ci -- --coverage
-after_script:
-  - npm install codecov --no-save
-  - codecov --token=$CODECOV_TOKEN
+#  - stage: Test
+#    node_js: 9
+#    before_script: npm install codecov
+#    script: npm test -- --coverage
+#    after_script: codecov --token=$CODECOV_TOKEN
